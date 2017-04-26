@@ -1,15 +1,20 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+if (config('app.env') == 'local') {
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+}
+
+# route to display all ushers
+Route::get('/teams', 'UsherSchedulerController@showTeams');
+
+# route to edit a single usher record
+Route::get('/ushers/edit/{id}', 'UsherSchedulerController@usherEdit');
+
+# route to save edits to the database
+Route::post('/usher/edit', 'UsherSchedulerController@edit_or_delete_Usher');
+
+
 
 Route::get('/', function () {
     return view('welcome');
