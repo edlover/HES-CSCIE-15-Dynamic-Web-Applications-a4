@@ -1,0 +1,91 @@
+
+body {
+    background-color: #96352f;
+}
+
+.container-fluid {
+    background-color: white;
+}
+
+/* CSS for message class borrowed from foobooks example */
+.message {
+    width:100%;
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color: green;
+    font-weight: bold;
+    color: white;
+}
+
+.page-header {
+    background-color: #96352f;
+    padding-top: 20px;
+    margin-top: 0;
+    color: white;
+}
+
+.header-right {
+    text-align:right;
+    padding-right: 10%;
+    color: lightgray;
+}
+
+.nav-tabs {
+    padding-left: 10px;
+    border-color: #96352f;
+}
+
+a {
+    color: #96352f;
+}
+
+.table {
+    margin-left: 5%;
+    margin-right: 15%;
+    margin-top: 20px;
+    width:80%;
+}
+
+.columnhide {
+    display: none;
+}
+
+form {
+    padding-bottom: 50px;
+}
+
+.form-title {
+    padding-left: 5%;
+}
+
+.form-control {
+    width: auto;
+}
+
+.btn {
+    margin-top: 10px;
+    width: 150px;
+}
+
+.form-group:first-of-type {
+    margin-top: 25px;
+}
+
+.delete_button {
+    margin-top: 30px;
+}
+
+#usher {
+    color: #96352f;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 85%;
+    text-align: center;
+    color: white;
+    padding-bottom: 20px;
+}

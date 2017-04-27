@@ -6,28 +6,36 @@
 
 @section('content')
 
-    <h1>Ushering Teams</h1>
+    <div class='container-fluid'>
+        <h1>Ushering Teams</h1>
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>First</th>
-            <th>Last</th>
-            <th>Team</th>
-            <th>Capitan?</th>
-            <th>email</th>
-        </tr>
-        @foreach($ushers as $usher)
+        <table class='table table-striped'>
             <tr>
-                <td>{{ $usher['id'] }}<td>
-                <td>{{ $usher['team'] }}</td>
-                <td>{{ $usher['capitan'] }}</td>
-                <td>{{ $usher['first_name'] }}</td>
-                <td>{{ $usher['last_name'] }}</td>
-                <td>{{ $usher['email'] }}</td>
-                <td><a href='/ushers/edit/{{ $usher['id'] }}'>edit/delete</a></td>
+                <th class='columnhide'>ID</th>
+                <th>Team</th>
+                <th>Team Capitan?</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Modify</th>
             </tr>
-        @endforeach
-    </table>
-
+            @foreach($ushers as $usher)
+                <tr>
+                    <td class='columnhide'>{{ $usher['id'] }}</td>
+                    <td>{{ $usher['team'] }}</td>
+                    <td>
+                        @if($usher['capitan'] === 1)
+                            yes
+                        @else
+                            no
+                        @endif
+                    </td>
+                    <td>{{ $usher['first_name'] }}</td>
+                    <td>{{ $usher['last_name'] }}</td>
+                    <td>{{ $usher['email'] }}</td>
+                    <td><a href='/ushers/edit/{{ $usher['id'] }}'>edit/delete</a></td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 @endsection

@@ -61,7 +61,6 @@ class UsherSchedulerController extends Controller
             } else {
                 Session::flash('message', 'That particular usher was not found.');
             }
-            return redirect('/teams');
 
         } else if (isset($_POST['update_button'])) {
             // update action
@@ -80,15 +79,32 @@ class UsherSchedulerController extends Controller
                 $usher->first_name = $request->first_name;
                 $usher->last_name = $request->last_name;
                 $usher->team = $request->team;
-                $usher->capitan = $request->capitan;
+                if($request->capitan == 'on') {
+                    $usher->capitan = 1;
+                } else {
+                    $usher->capitan = 0;
+                }
                 $usher->email = $request->email;
                 $usher->save();
 
                 Session::flash('message', $usher->first_name.' '.$usher->last_name.'\'s details were updated.');
             }
-            return redirect('/ushers/edit/'.$request->id);
+        } else { # the user clicked the cancel button
+            return redirect('/teams');
         }
+        return redirect('/teams');
 
+
+    }
+
+    /**
+    * GET
+    * /usher/new
+    *
+    * this will create a new usher in the databas
+    */
+    public function newUsher() {
+        return view('ushers.newUsher');
     }
 
 }
