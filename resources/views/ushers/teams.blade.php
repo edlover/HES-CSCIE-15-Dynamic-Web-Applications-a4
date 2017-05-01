@@ -9,7 +9,7 @@
     <div class='container-fluid'>
         <h1>Ushering Teams</h1>
 
-        <table class='table table-striped'>
+        <table class='table table-striped table-hover'>
             <tr>
                 <th class='columnhide'>ID</th>
                 <th>Team</th>

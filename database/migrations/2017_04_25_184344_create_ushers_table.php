@@ -13,24 +13,24 @@ class CreateUshersTable extends Migration
      */
     public function up()
     {
-        Schema::create('ushers', function (Blueprint $table) {
+        // Schema::create('ushers', function (Blueprint $table) {
+        //
+        //     # Increments method will make a Primary, Auto-Incrementing field.
+        //     # Most tables start off this way
+        //     $table->increments('id');
+        //
+        //     # This generates two columns: `created_at` and `updated_at` to
+        //     # keep track of changes to a row
+        //     $table->timestamps();
+        //
+        //     # The rest of the fields...
+        //     $table->string('first_name');
+        //     $table->string('last_name');
+        //     $table->integer('team_id');
+        //     $table->boolean('capitan');
+        //     $table->string('email');
 
-            # Increments method will make a Primary, Auto-Incrementing field.
-            # Most tables start off this way
-            $table->increments('id');
-
-            # This generates two columns: `created_at` and `updated_at` to
-            # keep track of changes to a row
-            $table->timestamps();
-
-            # The rest of the fields...
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('team');
-            $table->boolean('capitan');
-            $table->string('email');
-
-        });
+        // });
     }
 
     /**
@@ -40,6 +40,6 @@ class CreateUshersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ushers');
+        // Schema::drop('ushers');
     }
 }
