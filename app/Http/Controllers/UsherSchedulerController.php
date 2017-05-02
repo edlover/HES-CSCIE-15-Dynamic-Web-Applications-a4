@@ -18,9 +18,11 @@ class UsherSchedulerController extends Controller
     */
     public function showServices() {
         $services = Service::orderBy('date')->get();
+        $teams = Team::all();
 
         return view ('ushers.services')->with([
             'services' => $services,
+            'teams' => $teams,
         ]);
     }
 
@@ -28,10 +30,40 @@ class UsherSchedulerController extends Controller
     * GET
     * /service/new
     *
-    * this will prompt the user for information to create new usher
+    * This will prompt the user for information to create new service.
+    * A default date will be provided in the form. This date will be
+    * derived from adding 7 days to the last service date from the database.
     */
     public function newService(Request $request) {
-        return view('ushers.newService');
+        # get the date of the last service
+        # $lastServiceDate = Service::orderBy('date', 'desc')->first();
+        $lastService = Service::orderBy('date', 'desc')->first();
+        $lastServiceDate = $lastService->date;
+
+        if($lastServiceDate) {
+            # add seven days for the default input for the new service date
+            $newServiceDate = date_create($lastServiceDate);
+            date_add($newServiceDate,date_interval_create_from_date_string('7 days'));
+        } else {
+            $newServiceDate = null;
+        }
+
+        # get the team assigned to the last service
+        $lastTeam = $lastService->team_id;
+        if($lastTeam) {
+            # cyle to the next team and provide it to the view as the default
+            if($lastTeam == 1 || $lastTeam == 2 || $lastTeam == 3 || $lastTeam == 4 || $lastTeam == 5 ) {
+                $nextTeam = $lastTeam + 1;
+            } else {
+                # then it is 6, so make it 1
+                $nextTeam = 1;
+            }
+        }
+
+        return view('ushers.newService')->with([
+            'newServiceDate' => $newServiceDate,
+            'nextTeam' => $nextTeam,
+        ]);
     }
 
     /**

@@ -7,6 +7,12 @@ body {
     background-color: white;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 /* CSS for message class borrowed from foobooks example */
 .message {
     width:100%;

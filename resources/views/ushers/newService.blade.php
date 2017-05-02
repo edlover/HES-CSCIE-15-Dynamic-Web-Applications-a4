@@ -19,7 +19,7 @@
                     <div class='form-group'>
                         <label for='date' class='col-xs-2 control-label'>Date</label>
                         <div class='col-xs-10'>
-                            <input type='text' class='form-control' name='date' id='date' size='50' value='{{ old('date') }}'>
+                            <input type='text' class='form-control' name='date' id='date' size='50' value='{{ date_format($newServiceDate,'Y-m-d') }}'>
                         </div>
                     </div>
                     <div class='form-group'>
@@ -87,12 +87,12 @@
                         <label for='team' class='col-xs-2 control-label'>Team</label>
                         <div class='col-xs-10'>
                             <select name='team' class='form-control' id='team'>
-                                <option value='1' >Team 1</option>
-                                <option value='2' >Team 2</option>
-                                <option value='3' >Team 3</option>
-                                <option value='4' >Team 4</option>
-                                <option value='5' >Team 5</option>
-                                <option value='6' selected >unassigned</option>
+                                <option value='1' {{ ($nextTeam == '1') ? 'selected' : '' }}>Team 1</option>
+                                <option value='2' {{ ($nextTeam == '2') ? 'selected' : '' }}>Team 2</option>
+                                <option value='3' {{ ($nextTeam == '3') ? 'selected' : '' }}>Team 3</option>
+                                <option value='4' {{ ($nextTeam == '4') ? 'selected' : '' }}>Team 4</option>
+                                <option value='5' {{ ($nextTeam == '5') ? 'selected' : '' }}>Team 5</option>
+                                <option value='6' >unassigned</option>
                             </select>
                         </div>
                     </div>

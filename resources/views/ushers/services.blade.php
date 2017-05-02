@@ -16,12 +16,14 @@
                 <th>Time</th>
                 <th>Service Name</th>
                 <th>Usher Team</th>
+                <th>Ushers</th>
                 <th>Modify</th>
             </tr>
             @foreach($services as $service)
                 <tr>
                     <td class='columnhide'>{{ $service['id'] }}</td>
-                    <td>{{ $service['date'] }}</td>
+                    <!-- <td>{{ $service['date'] }}</td> -->
+                    <td>{{ Carbon\Carbon::parse($service['date'])->format('D F j, Y') }}</td>
                     <td>{{ $service['time'] }}</td>
                     <td>{{ $service['name'] }}</td>
                     <td>
@@ -30,6 +32,23 @@
                         @else
                             Unassigned
                         @endif
+                    <td>
+                        @foreach($teams as $team)
+                            @if ($team->id == $service['team_id'])
+                                <ul>
+                                    @foreach($team->ushers as $usher)
+                                        <li>
+                                            {{ $usher->first_name }} {{$usher->last_name }}
+                                            @if ($usher->capitan == 1)
+                                                <!-- denotes usher as capitan -->
+                                                (c)
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        @endforeach
+                    </td>
                     <td><a href='/service/edit/{{ $service['id'] }}'>edit/delete</a></td>
                 </tr>
             @endforeach

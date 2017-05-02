@@ -34,7 +34,7 @@
                 <div class='row'>
                     <ul class='nav nav-tabs'>
                         <li role='presentation'><a href="/">Services</a></li>
-                        <li role='presentation'><a href="/service/new">Create Service(s)</a></li>
+                        <li role='presentation'><a href="/service/new">Create New Service</a></li>
                         <li role='presentation'><a href='/teams'>Usher Teams</a></li>
                         <li role='presentation'><a href='/usher/new'>Create New Usher</a></li>
                     </ul>

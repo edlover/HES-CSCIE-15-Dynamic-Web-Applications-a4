@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    public function usher() {
-
-        # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
-        return $this->belongsToMany('App\Usher')->withTimestamps();
-    }
+    public function team() {
+		# Service belongs to Team
+		# Define an inverse one-to-many relationship.
+		return $this->belongsTo('App\Team');
+	}
 }

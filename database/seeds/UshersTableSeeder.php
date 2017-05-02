@@ -17,7 +17,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Dave',
             'last_name' => 'Prezuhy',
-            'team_id' => 1,
             'capitan' => 1,
             'email' => 'davidp@foo.com',
         ]);
@@ -26,7 +25,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'John',
             'last_name' => 'Long',
-            'team_id' => 1,
             'capitan' => 0,
             'email' => 'johnl@foo.com',
         ]);
@@ -35,7 +33,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Lee',
             'last_name' => 'Champlin',
-            'team_id' => 1,
             'capitan' => 0,
             'email' => 'leec@foo.com',
         ]);
@@ -44,7 +41,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Pete',
             'last_name' => 'Beaumont',
-            'team_id' => 1,
             'capitan' => 0,
             'email' => 'peteb@foo.com',
         ]);
@@ -53,7 +49,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Bruce',
             'last_name' => 'Givnish',
-            'team_id' => 2,
             'capitan' => 0,
             'email' => 'bruceg@foo.com',
         ]);
@@ -62,7 +57,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Dennis',
             'last_name' => 'Byrnes',
-            'team_id' => 2,
             'capitan' => 1,
             'email' => 'dennisb@foo.com',
         ]);
@@ -71,7 +65,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Eileen',
             'last_name' => 'Patram',
-            'team_id' => 2,
             'capitan' => 0,
             'email' => 'eileenp@foo.com',
         ]);
@@ -80,7 +73,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Lee',
             'last_name' => 'Mangan',
-            'team_id' => 2,
             'capitan' => 0,
             'email' => 'leem@foo.com',
         ]);
@@ -89,7 +81,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Richard',
             'last_name' => 'Dunlap',
-            'team_id' => 2,
             'capitan' => 0,
             'email' => 'richardd@foo.com',
         ]);
@@ -98,7 +89,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Andy',
             'last_name' => 'Rusnak',
-            'team_id' => 3,
             'capitan' => 0,
             'email' => 'andyr@foo.com',
         ]);
@@ -107,7 +97,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'David',
             'last_name' => 'Bonner',
-            'team_id' => 3,
             'capitan' => 0,
             'email' => 'davidb@foo.com',
         ]);
@@ -116,7 +105,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Doug',
             'last_name' => 'Richards',
-            'team_id' => 3,
             'capitan' => 0,
             'email' => 'dougr@foo.com',
         ]);
@@ -125,7 +113,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Mike',
             'last_name' => 'Mulroy',
-            'team_id' => 3,
             'capitan' => 1,
             'email' => 'mikem@foo.com',
         ]);
@@ -134,7 +121,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Deb',
             'last_name' => 'Casey',
-            'team_id' => 4,
             'capitan' => 0,
             'email' => 'debc@foo.com',
         ]);
@@ -143,7 +129,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'John',
             'last_name' => 'Sangston',
-            'team_id' => 4,
             'capitan' => 0,
             'email' => 'johns@foo.com',
         ]);
@@ -152,7 +137,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Mercer',
             'last_name' => 'Sisson',
-            'team_id' => 4,
             'capitan' => 1,
             'email' => 'mercers@foo.com',
         ]);
@@ -161,7 +145,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Micheal',
             'last_name' => 'Stinson',
-            'team_id' => 4,
             'capitan' => 0,
             'email' => 'michaels@foo.com',
         ]);
@@ -170,7 +153,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Sam',
             'last_name' => 'Miller',
-            'team_id' => 4,
             'capitan' => 0,
             'email' => 'sames@foo.com',
         ]);
@@ -179,7 +161,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Dave',
             'last_name' => 'Kriebel',
-            'team_id' => 5,
             'capitan' => 0,
             'email' => 'davek@foo.com',
         ]);
@@ -188,7 +169,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Ed',
             'last_name' => 'Steinbauer',
-            'team_id' => 5,
             'capitan' => 0,
             'email' => 'eds@foo.com',
         ]);
@@ -197,7 +177,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Eric',
             'last_name' => 'Wertz',
-            'team_id' => 5,
             'capitan' => 0,
             'email' => 'ericw@foo.com',
         ]);
@@ -206,7 +185,6 @@ class UshersTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'first_name' => 'Walter',
             'last_name' => 'Unangst',
-            'team_id' => 5,
             'capitan' => 1,
             'email' => 'walteru@foo.com',
         ]);
