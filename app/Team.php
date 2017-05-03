@@ -16,4 +16,14 @@ class Team extends Model
         # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
         return $this->belongsToMany('App\Usher')->withTimestamps();
     }
+
+    public static function getTeamsForCheckboxes() {
+        $teams = Team::orderBy('team_name','ASC')->get();
+        $teamsForCheckboxes = [];
+
+        foreach($teams as $team) {
+            $teamsForCheckboxes[$team['id']] = $team->team_name;
+        }
+        return $teamsForCheckboxes;
+    }
 }

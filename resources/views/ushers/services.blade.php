@@ -7,7 +7,7 @@
 @section('content')
 
     <div class='container-fluid'>
-        <h1>Services</h1>
+        <h1>Usher Team Assignments for Worship Services</h1>
 
         <table class='table table-striped table-hover'>
             <tr>
@@ -23,7 +23,7 @@
                 <tr>
                     <td class='columnhide'>{{ $service['id'] }}</td>
                     <!-- <td>{{ $service['date'] }}</td> -->
-                    <td>{{ Carbon\Carbon::parse($service['date'])->format('D F j, Y') }}</td>
+                    <td><strong>{{ Carbon\Carbon::parse($service['date'])->format('D F j, Y') }}</strong></td>
                     <td>{{ $service['time'] }}</td>
                     <td>{{ $service['name'] }}</td>
                     <td>

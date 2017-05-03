@@ -8,22 +8,30 @@
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-xs-12 form-title'>
-                <h1>New service</h1>
+                <h1>New Worship Service</h1>
             </div>
         </div>
         <div class='row'>
             <div class='col-xs-12'>
                 <form method='POST' class='form-horizontal' action='/service/new'>
                     {{ csrf_field() }}
-
-                    <div class='form-group'>
-                        <label for='date' class='col-xs-2 control-label'>Date</label>
+                    <div class='row'>
+                        <div class='col-xs-2'></div>
                         <div class='col-xs-10'>
-                            <input type='text' class='form-control' name='date' id='date' size='50' value='{{ date_format($newServiceDate,'Y-m-d') }}'>
+                            <p>* Required fields</p>
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label for='time' class='col-xs-2 control-label'>Time</label>
+                        <label for='date' class='col-xs-2 control-label'>Date *</label>
+                        <div class='col-xs-10'>
+                            <input type='text' class='form-control' name='date' id='date' size='50' value='{{ date_format($newServiceDate,'Y-m-d') }}'>
+                            <div class='note'>
+                                (Suggested next Worship Service date)
+                            </div>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label for='time' class='col-xs-2 control-label'>Time *</label>
                         <div class='col-xs-10'>
                             <select name='time' class='form-control' id='time'>
                                 <option value='12:00 AM' >12:00 AM</option>
@@ -84,7 +92,7 @@
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label for='team' class='col-xs-2 control-label'>Team</label>
+                        <label for='team' class='col-xs-2 control-label'>Usher Team *</label>
                         <div class='col-xs-10'>
                             <select name='team' class='form-control' id='team'>
                                 <option value='1' {{ ($nextTeam == '1') ? 'selected' : '' }}>Team 1</option>
@@ -94,6 +102,9 @@
                                 <option value='5' {{ ($nextTeam == '5') ? 'selected' : '' }}>Team 5</option>
                                 <option value='6' >unassigned</option>
                             </select>
+                            <div class='note'>
+                                (Suggested next usher team on rotation)
+                            </div>
                         </div>
                     </div>
                     <div class='row'>

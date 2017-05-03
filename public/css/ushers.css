@@ -13,6 +13,15 @@ ul {
     padding: 0;
 }
 
+form {
+    margin-top: 25px;
+}
+
+.note {
+    font-style: italic;
+    font-size: 80%;
+}
+
 /* CSS for message class borrowed from foobooks example */
 .message {
     width:100%;
@@ -51,15 +60,35 @@ ul {
     border-color: #96352f;
 }
 
+.nav-tabs>li>a {
+    border: 1px solid #96352f;
+    background: #96352f;
+    color: white;
+}
+
+.nav-tabs>li#iamhere>a {
+    background: white;
+    color: #96352f;
+}
+
 a {
     color: #96352f;
+}
+
+li>label {
+    font-weight: normal;
 }
 
 .table {
     margin-left: 5%;
     margin-right: 15%;
-    margin-top: 20px;
+    margin-top: 30px;
     width:80%;
+}
+
+h3#teamName {
+    margin-left: 20px;
+    margin-top: 40px;
 }
 
 .columnhide {

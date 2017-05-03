@@ -167,12 +167,10 @@ class UsherSchedulerController extends Controller
     * this will display all teams
     */
     public function showTeams() {
-        $ushers = Usher::orderBy('team')
-            ->orderBy('capitan', 'desc')
-            ->get();
+        $teams = Team::with('ushers')->get();
 
         return view ('ushers.teams')->with([
-            'ushers' => $ushers,
+            'teams' => $teams,
         ]);
     }
 
@@ -181,16 +179,28 @@ class UsherSchedulerController extends Controller
     * /ushers/edit/{id}
     */
     public function usherEdit($id) {
-        $usher = Usher::find($id);
+        # $usher = Usher::find($id);
+        $usher = Usher::with('teams')->find($id);
 
         if(is_null($usher)) {
             Session::flash('message', 'That particular usher was not found.');
             return redirect('/teams');
         }
 
+        $teamsForCheckboxes = team::getTeamsForCheckboxes();
+
+        # Create a simple array of just the team names for teams associated with this usher;
+        # will be used in the view to decide which teams should be checked off
+        $teamsForThisUsher = [];
+        foreach($usher->teams as $team) {
+            $teamsForThisUsher[] = $team->team_name;
+        }
+
         return view('ushers.editUsher')->with([
             'id' => $id,
             'usher' => $usher,
+            'teamsForCheckboxes' => $teamsForCheckboxes,
+            'teamsForThisUsher' => $teamsForThisUsher,
         ]);
     }
 
@@ -217,7 +227,6 @@ class UsherSchedulerController extends Controller
             $this->validate($request, [
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'team' => 'required',
                 'email' => 'required|email',
             ]);
 
@@ -228,13 +237,25 @@ class UsherSchedulerController extends Controller
                 # update user record in the database
                 $usher->first_name = $request->first_name;
                 $usher->last_name = $request->last_name;
-                $usher->team = $request->team;
                 if($request->capitan == 'on') {
                     $usher->capitan = 1;
                 } else {
                     $usher->capitan = 0;
                 }
                 $usher->email = $request->email;
+
+                # If there were teams selected...
+                if($request->teams) {
+                    $teams = $request->teams;
+                }
+                # If there were no teams selected then
+                # default to an empty array of tags
+                else {
+                    $teams = [];
+                }
+
+                # Sync teams
+                $usher->teams()->sync($teams);
                 $usher->save();
 
                 Session::flash('message', $usher->first_name.' '.$usher->last_name.'\'s details were updated.');

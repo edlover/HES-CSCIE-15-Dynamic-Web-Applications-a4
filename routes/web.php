@@ -6,13 +6,13 @@ if (config('app.env') == 'local') {
 }
 
 # route to display all ushers
-# Route::get('/teams', 'UsherSchedulerController@showTeams');
+Route::get('/teams', 'UsherSchedulerController@showTeams');
 
 # route to edit a single usher record
-# Route::get('/ushers/edit/{id}', 'UsherSchedulerController@usherEdit');
+Route::get('/ushers/edit/{id}', 'UsherSchedulerController@usherEdit');
 
 # route to save edits to the database
-# Route::post('/usher/edit', 'UsherSchedulerController@edit_or_delete_Usher');
+Route::post('/usher/edit', 'UsherSchedulerController@edit_or_delete_Usher');
 
 # route to prompt for information to enter new usher in the database
 # Route::get('/usher/new', 'UsherSchedulerController@newUsher');
