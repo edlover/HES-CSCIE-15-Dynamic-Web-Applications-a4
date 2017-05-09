@@ -35,6 +35,18 @@ form {
     color: white;
 }
 
+.msg_warning {
+    width:100%;
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color: yellow;
+    font-weight: bold;
+    color: white;
+}
+
 .page-header {
     background-color: #96352f;
     padding-top: 20px;
@@ -60,13 +72,13 @@ form {
     border-color: #96352f;
 }
 
-.nav-tabs>li>a {
+.nav-tabs>li>a, .nav-tabs>li>a:hover {
     border: 1px solid #96352f;
     background: #96352f;
     color: white;
 }
 
-.nav-tabs>li#iamhere>a {
+li#iamhere>a {
     background: white;
     color: #96352f;
 }

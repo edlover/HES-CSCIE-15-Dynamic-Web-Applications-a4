@@ -5,22 +5,20 @@
 @endsection
 
 @section('content')
-
-    <div class='container-fluid'>
-        <h1>Ushering Teams</h1>
-
-        @foreach($teams as $team)
-            <h3 id='teamName'>{{ $team->team_name }}</h3>
-            <table class='table table-striped table-hover'>
-                <tr>
-                    <th class='columnhide'>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Team Capitan?</th>
-                    <th>Email</th>
-                    <th>Modify</th>
-                </tr>
-
+    <main id='part3'>
+        <div class='container-fluid'>
+            <h1>Ushering Teams</h1>
+            @foreach($teams as $team)
+                <h3 id='teamName'>{{ $team->team_name }}</h3>
+                <table class='table table-striped table-hover'>
+                    <tr>
+                        <th class='columnhide'>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Team Capitan?</th>
+                        <th>Email</th>
+                        <th>Modify</th>
+                    </tr>
                         @foreach($team->ushers as $usher)
                             <tr>
                                 <td class='columnhide'>{{ $usher['id'] }}</td>
@@ -37,8 +35,8 @@
                                 <td><a href='/ushers/edit/{{ $usher['id'] }}'>edit/delete</a></td>
                             </tr>
                         @endforeach
-
-            </table>
-        @endforeach
+                </table>
+            @endforeach
+        </div>
     </div>
 @endsection

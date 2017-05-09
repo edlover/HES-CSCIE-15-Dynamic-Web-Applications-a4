@@ -216,6 +216,7 @@ class UsherSchedulerController extends Controller
 
             # only delte if the $usher is not null
             if($usher) {
+                $usher->teams()->detach();
                 $usher->delete();
                 Session::flash('message', $usher->first_name.' '.$usher->last_name.' was removed from the usher list.');
             } else {
@@ -247,11 +248,13 @@ class UsherSchedulerController extends Controller
                 # If there were teams selected...
                 if($request->teams) {
                     $teams = $request->teams;
+
                 }
                 # If there were no teams selected then
-                # default to an empty array of tags
+                # default to placing the usher in the
+                # unassigned group
                 else {
-                    $teams = [];
+                    $teams = 6;
                 }
 
                 # Sync teams
@@ -273,14 +276,19 @@ class UsherSchedulerController extends Controller
     * this will prompt the user for information to create new usher
     */
     public function newUsher(Request $request) {
-        return view('ushers.newUsher');
+
+        $teamsForCheckboxes = team::getTeamsForCheckboxes();
+
+        return view('ushers.newUsher')->with([
+            'teamsForCheckboxes' => $teamsForCheckboxes,
+        ]);
     }
 
     /**
     * POST
     * /usher/new
     *
-    * this will save the new usher in the databas
+    * this will save the new usher in the database
     */
     public function saveUsher(Request $request) {
 
@@ -288,22 +296,35 @@ class UsherSchedulerController extends Controller
             $this->validate($request, [
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'team' => 'required',
                 'email' => 'required|email',
             ]);
 
-            # update user record in the database
+            # create user record in the database
             $usher = new Usher();
+
             $usher->first_name = $request->first_name;
             $usher->last_name = $request->last_name;
-            $usher->team = $request->team;
             if($request->capitan == 'on') {
                 $usher->capitan = 1;
             } else {
                 $usher->capitan = 0;
             }
             $usher->email = $request->email;
+
+            # If there were teams selected...
+            if($request->teams) {
+                $teams = $request->teams;
+            }
+            # If there were no teams selected then
+            # default to placing the usher in the
+            # unassigned group
+            else {
+                $teams = 6;
+            }
+
+            # Sync teams
             $usher->save();
+            $usher->teams()->sync($teams);
 
             Session::flash('message', $usher->first_name.' '.$usher->last_name.' was added to the usher list.');
         } else { # the user clicked the cancel button

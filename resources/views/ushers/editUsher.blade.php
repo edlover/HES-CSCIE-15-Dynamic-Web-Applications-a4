@@ -45,7 +45,6 @@
                                         value='{{ ($team_name == 'unassigned') ? '6' : str_ireplace('Team', '', $team_name) }}'
                                         id='team_{{ $team_name }}'
                                         name='teams[]'
-                                        id='teams'
                                         {{ (in_array($team_name, $teamsForThisUsher)) ? 'CHECKED' : '' }}
                                     >&nbsp;
                                     <label for='team_{{ $team_name }}'>{{ $team_name }}</label></li>

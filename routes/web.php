@@ -15,10 +15,10 @@ Route::get('/ushers/edit/{id}', 'UsherSchedulerController@usherEdit');
 Route::post('/usher/edit', 'UsherSchedulerController@edit_or_delete_Usher');
 
 # route to prompt for information to enter new usher in the database
-# Route::get('/usher/new', 'UsherSchedulerController@newUsher');
+Route::get('/usher/new', 'UsherSchedulerController@newUsher');
 
 # route to save new usher in the database
-# Route::post('/usher/new', 'UsherSchedulerController@saveUsher');
+Route::post('/usher/new', 'UsherSchedulerController@saveUsher');
 
 # route to view services
 Route::get('/', 'UsherSchedulerController@showServices');
@@ -34,3 +34,10 @@ Route::get('/service/edit/{id}', 'UsherSchedulerController@serviceEdit');
 
 # route to save edits to the database
 Route::post('/service/edit', 'UsherSchedulerController@edit_or_delete_Service');
+
+# 'catch all' route if none of the above apply
+Route::any('{catchall}', function() {
+    Session::Flash('message',
+    'Sorry, but that page was not found. You have been redirected to the site\'s landing page.');
+    return redirect('/');
+})->where('catchall', '.*');
