@@ -36,19 +36,18 @@
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label for='teams' class='col-xs-2 control-label'>Usher assigned to: *</label>
+                        <label class='col-xs-2 control-label'>Usher assigned to: *</label>
                         <div class='col-xs-10'>
                             <ul>
                                 @foreach($teamsForCheckboxes as $id => $team_name)
                                     <li><input
                                         type='checkbox'
                                         value='{{ ($team_name == 'unassigned') ? '6' : str_ireplace('Team', '', $team_name) }}'
-                                        id='team_{{ $team_name }}'
                                         name='teams[]'
                                         class='{{ ($team_name == 'unassigned') ? 'blah' : 'checkboxchecker' }}'
                                         {{ (in_array($team_name, $teamsForThisUsher)) ? 'CHECKED' : '' }}
                                     >&nbsp;
-                                    <label for='team_{{ $team_name }}'>{{ $team_name }}</label></li>
+                                    <label>{{ $team_name }}</label></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -73,7 +72,7 @@
                     </div>
                     <div class='row'>
                         <div class='col-xs-6 text-center'>
-                            <input type='submit' class='btn btn-danger delete_button' name='delete_button'value='Delete usher'>
+                            <input type='submit' class='btn btn-danger delete_button' name='delete_button' value='Delete usher'>
                         </div>
                     </div>
                 </form>

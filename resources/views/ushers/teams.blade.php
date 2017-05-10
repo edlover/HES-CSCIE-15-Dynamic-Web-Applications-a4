@@ -9,7 +9,7 @@
         <div class='container-fluid'>
             <h1>Ushering Teams</h1>
             @foreach($teams as $team)
-                <h3 id='teamName'>{{ $team->team_name }}</h3>
+                <h3 class='teamName'>{{ $team->team_name }}</h3>
                 <table class='table table-striped table-hover'>
                     <tr>
                         <th class='columnhide'>ID</th>
