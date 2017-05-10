@@ -103,7 +103,7 @@ class UsherSchedulerController extends Controller
             $service->team_id = $request->team;
             $service->save();
 
-            Session::flash('message', 'The service was added.');
+            Session::flash('good_msg', 'The service was added.');
         } else { # the user clicked the cancel button
             return redirect('/');
         }
@@ -124,7 +124,7 @@ class UsherSchedulerController extends Controller
         $service = Service::find($id);
 
         if(is_null($service)) {
-            Session::flash('message', 'That particular service was not found.');
+            Session::flash('warning_msg', 'That particular service was not found.');
             return redirect('/');
         }
 
@@ -148,9 +148,9 @@ class UsherSchedulerController extends Controller
             # only delete if the $service is not null
             if($service) {
                 $service->delete();
-                Session::flash('message', 'The service was removed');
+                Session::flash('good_msg', 'The service was removed');
             } else {
-                Session::flash('message', 'That particular service was not found.');
+                Session::flash('warning_msg', 'That particular service was not found.');
             }
 
         } else if (isset($_POST['update_button'])) {
@@ -172,7 +172,7 @@ class UsherSchedulerController extends Controller
                 $service->team_id = $request->team;
                 $service->save();
 
-                Session::flash('message', 'The service details were updated.');
+                Session::flash('good_msg', 'The service details were updated.');
             }
         } else { # the user clicked the cancel button
             return redirect('/');
@@ -252,9 +252,9 @@ class UsherSchedulerController extends Controller
             if($usher) {
                 $usher->teams()->detach();
                 $usher->delete();
-                Session::flash('message', $usher->first_name.' '.$usher->last_name.' was removed from the usher list.');
+                Session::flash('good_msg', $usher->first_name.' '.$usher->last_name.' was removed from the usher list.');
             } else {
-                Session::flash('message', 'That particular usher was not found.');
+                Session::flash('warning_msg', 'That particular usher was not found.');
             }
 
         } else if (isset($_POST['update_button'])) {
@@ -295,7 +295,7 @@ class UsherSchedulerController extends Controller
                 $usher->teams()->sync($teams);
                 $usher->save();
 
-                Session::flash('message', $usher->first_name.' '.$usher->last_name.'\'s details were updated.');
+                Session::flash('good_msg', $usher->first_name.' '.$usher->last_name.'\'s details were updated.');
             }
         } else { # the user clicked the cancel button
             return redirect('/teams');
@@ -366,7 +366,7 @@ class UsherSchedulerController extends Controller
             $usher->save();
             $usher->teams()->sync($teams);
 
-            Session::flash('message', $usher->first_name.' '.$usher->last_name.' was added to the usher list.');
+            Session::flash('good_msg', $usher->first_name.' '.$usher->last_name.' was added to the usher list.');
         } else { # the user clicked the cancel button
             return redirect('/teams');
         }

@@ -11,25 +11,37 @@
         <link rel='stylesheet' href='/css/ushers.css' type='text/css'>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src='/js/nav.js'></script>
+        <script src='/js/usher.js'></script>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
         @stack('head')
 
     </head>
     <body>
-
-        @if(Session::get('message') != null)
-            <div class='message'>{{ Session::get('message') }}</div>
+        @if(Session::get('warning_msg') != null)
+            <div class='warning_msg'>{{ Session::get('warning_msg') }}</div>
         @endif
+        @if(Session::get('good_msg') != null)
+            <div class='good_msg'>{{ Session::get('good_msg') }}</div>
+        @endif
+
 
         <header>
             <div class='container-fluid'>
                 <div class='row page-header'>
-                    <div class='col-sm-6'>
+                    <div class='col-xs-1 text-right'>
+                        <img src='/images/COTMSymbol.png' id='COTMSymbol' alt='COTM Symbol'>
+                    </div>
+                    <div class='col-xs-7'>
                         <h1>Church of the Messiah</h1>
                         <h5>The Episcopal Church in Gwynedd Pennsylvania</h5>
                     </div>
-                    <div class='col-sm-6, header-right'>
+                    <div class='col-xs-1 text-right'>
                         <img src='/images/people.png' alt='people icon' id='people_icon'>
+                    </div>
+                    <div class='col-xs-3'>
+
                         <h2>Usher Scheduler</h2>
                     </div>
                 </div>
@@ -43,19 +55,22 @@
                                 <li role='presentation' id='navpart4' ><a href='/usher/new'>Create New Usher</a></li>
                             @else
                                 <li role='presentation' id='navpart1' ><a href="/">Worship Services</a></li>
-                                <li role='presentation' id='navpart2' ><a href='/login'>Login</a></li>
                             @endif
                         </ul>
                     </div>
                     <div class='col-xs-4'>
                         @if(Auth::check())
-                             <form method='POST' id='logout' action='/logout'>
-                                 {{csrf_field()}}
-                                 <ul>
-                                     <li>Hi {{ $user->name }}</li>
-                                     <li><a href='#' onClick='document.getElementById("logout").submit();'>Logout</a></li>
+                            <form method='POST' id='logout' class='login-out' action='/logout'>
+                                {{csrf_field()}}
+                                <ul>
+                                    <li>Hi <span id='username'>{{ $user->name }}</span>!</li>
+                                    <li><a href='#'>Logout</a></li>
                                 </ul>
-                             </form>
+                            </form>
+                        @else
+                            <ul class='login-out'>
+                                <li><a href='/login'>Login</a></li>
+                            </ul>
                         @endif
                     </div>
                 </div>

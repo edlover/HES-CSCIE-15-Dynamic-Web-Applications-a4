@@ -23,16 +23,24 @@ form {
 }
 
 /* CSS for message class borrowed from foobooks example */
-.message {
+.good_msg, .warning_msg {
     width:100%;
     text-align:center;
     padding:5px;
     position:fixed;
     top:0;
     left:0;
-    background-color: green;
     font-weight: bold;
+}
+
+.good_msg {
+    background-color: green;
     color: white;
+}
+
+.warning_msg {
+    background-color: yellow;
+    color: black;
 }
 
 .page-header {
@@ -41,14 +49,6 @@ form {
     margin-top: 30px;
     color: white;
     position: relative;
-}
-
-.page-header .header-right {
-    padding-right: 20%;
-    color: lightgray;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
 }
 
 .page-header img {
@@ -70,17 +70,26 @@ form {
     color: white;
 }
 
+#COTMSymbol {
+    height: 100px;
+    width: auto;
+}
+
 li#iamhere>a {
     background: white;
     color: #96352f;
 }
 
-#logout {
+.login-out {
     text-align: right;
     margin-right: 20px;
     margin-top: 0;
     margin-bottom: 0;
     padding: 0;
+}
+
+#username {
+    font-weight: bold;
 }
 
 a {

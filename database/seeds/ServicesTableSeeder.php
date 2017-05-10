@@ -22,6 +22,12 @@ class ServicesTableSeeder extends Seeder
             ['2017-05-07', '9:30 AM', '', 1],
             ['2017-05-14', '9:30 AM', '', 2],
             ['2017-05-21', '9:30 AM', '', 3],
+            ['2017-05-28', '9:30 AM', '', 4],
+            ['2017-06-04', '9:30 AM', '', 5],
+            ['2017-06-11', '9:30 AM', '', 1],
+            ['2017-06-18', '9:30 AM', '', 2],
+            ['2017-06-25', '9:30 AM', '', 3],
+            ['2017-07-02', '9:30 AM', '', 4],
         ];
         # Initiate a new timestamp we can use for created_at/updated_at fields
         $timestamp = Carbon\Carbon::now()->subDays(count($services));

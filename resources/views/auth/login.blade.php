@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-<main id='part2'>
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-xs-12 form-title'>
@@ -50,5 +49,4 @@
             </div>
         </div>
     </div>
-</main>
 @endsection

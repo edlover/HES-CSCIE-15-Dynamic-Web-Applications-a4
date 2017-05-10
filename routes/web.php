@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     # 'catch all' route if none of the above apply
     Route::any('{catchall}', function() {
-        Session::Flash('message',
+        Session::Flash('warning_msg',
         'Sorry, but that page was not found. You have been redirected to the site\'s landing page.');
         return redirect('/');
     })->where('catchall', '.*');
