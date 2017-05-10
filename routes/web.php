@@ -47,4 +47,4 @@ Route::group(['middleware' => 'auth'], function () {
         'Sorry, but that page was not found. You have been redirected to the site\'s landing page.');
         return redirect('/');
     })->where('catchall', '.*');
-});
+# });
