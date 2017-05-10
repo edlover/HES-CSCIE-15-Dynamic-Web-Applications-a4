@@ -63,7 +63,7 @@
                             <form method='POST' id='logout' class='login-out' action='/logout'>
                                 {{csrf_field()}}
                                 <ul>
-                                    <li>Hi <span id='username'>{{ $user->name }}</span>!</li>
+                                    <li><span id='username'>{{ $user->name }}</span></li>
                                     <li><a href='#'>Logout</a></li>
                                 </ul>
                             </form>

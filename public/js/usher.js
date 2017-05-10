@@ -21,7 +21,7 @@ $(document).ready(function(){
 
     $('.checkboxchecker').on('click',function(){
         if($('.checkboxchecker:checked').length == $('.checkboxchecker').length){
-            $('#team_unassigned').prop('checked',true);
+            $('#team_unassigned').prop('checked',false);
         }else{
             $('#team_unassigned').prop('checked',false);
         }
