@@ -26,13 +26,13 @@
                     <div class='form-group'>
                         <label for='first_name' class='col-xs-2 control-label'>First name *</label>
                         <div class='col-xs-10'>
-                            <input type='text' class='form-control' name='first_name' id='first_name' size='50' value='{{ old('first_name', $usher->first_name) }}'>
+                            <input type='text' class='form-control' name='first_name' id='first_name' size='50' value='{{ old('first_name', $usher->first_name) }}' required >
                         </div>
                     </div>
                     <div class='form-group'>
                         <label for='last_name' class='col-xs-2 control-label'>Last Name *</label>
                         <div class='col-xs-10'>
-                            <input type='text' class='form-control' name='last_name' id='last_name' size='50' value='{{ old('last_name', $usher->last_name) }}'>
+                            <input type='text' class='form-control' name='last_name' id='last_name' size='50' value='{{ old('last_name', $usher->last_name) }}' required >
                         </div>
                     </div>
                     <div class='form-group'>
@@ -61,7 +61,7 @@
                     <div class='form-group'>
                         <label for='email' class='col-xs-2 control-label'>Email *</label>
                         <div class='col-xs-10'>
-                            <input type='text' class='form-control' name='email' id='email' value='{{ old('email', $usher->email) }}'>
+                            <input type='email' class='form-control' name='email' id='email' value='{{ old('email', $usher->email) }}' required>
                         </div>
                     </div>
                     <div class='row'>

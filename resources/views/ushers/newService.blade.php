@@ -25,7 +25,7 @@
                         <div class='form-group'>
                             <label for='date' class='col-xs-2 control-label'>Date *</label>
                             <div class='col-xs-10'>
-                                <input type='text' class='form-control' name='date' id='date' size='50' value='{{ date_format($newServiceDate,'Y-m-d') }}'>
+                                <input type='text' class='form-control' name='date' id='date' size='50' value='{{ date_format($newServiceDate,'Y-m-d') }}' required >
                                 <div class='note'>
                                     (Suggested next Worship Service date)
                                 </div>

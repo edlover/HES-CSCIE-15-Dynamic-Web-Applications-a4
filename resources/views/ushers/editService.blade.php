@@ -15,16 +15,22 @@
             <div class='col-xs-12'>
                 <form method='POST' class='form-horizontal' action='/service/edit'>
                     {{ csrf_field() }}
+                    <div class='row'>
+                        <div class='col-xs-2'></div>
+                        <div class='col-xs-10'>
+                            <p>* Required fields</p>
+                        </div>
+                    </div>
                     <input type='hidden' name='id' value='{{ $service->id }}'>
 
                     <div class='form-group'>
-                        <label for='date' class='col-xs-2 control-label'>Date</label>
+                        <label for='date' class='col-xs-2 control-label'>Date *</label>
                         <div class='col-xs-10'>
-                            <input type='text' class='form-control' name='date' id='date' size='50' value='{{ old('date', $service->date) }}'>
+                            <input type='text' class='form-control' name='date' id='date' size='50' value='{{ old('date', $service->date) }}' required>
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label for='time' class='col-xs-2 control-label'>Time</label>
+                        <label for='time' class='col-xs-2 control-label'>Time *</label>
                         <div class='col-xs-10'>
                             <select name='time' class='form-control' id='time'>
                                 <option value='12:00 AM' {{ ($service->time == '12:00 AM') ? 'selected' : '' }} >12:00 AM</option>
@@ -85,7 +91,7 @@
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label for='team' class='col-xs-2 control-label'>Team</label>
+                        <label for='team' class='col-xs-2 control-label'>Usher Team *</label>
                         <div class='col-xs-10'>
                             <select name='team' class='form-control' id='team'>
                                 <option value='1' {{ ($service->team_id == '1') ? 'selected' : '' }}>Team 1</option>
