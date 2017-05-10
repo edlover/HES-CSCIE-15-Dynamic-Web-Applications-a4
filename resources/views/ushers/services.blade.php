@@ -22,7 +22,6 @@
                 @foreach($services as $service)
                     <tr>
                         <td class='columnhide'>{{ $service['id'] }}</td>
-                        <!-- <td>{{ $service['date'] }}</td> -->
                         <td><strong>{{ Carbon\Carbon::parse($service['date'])->format('D F j, Y') }}</strong></td>
                         <td>{{ $service['time'] }}</td>
                         <td>{{ $service['name'] }}</td>

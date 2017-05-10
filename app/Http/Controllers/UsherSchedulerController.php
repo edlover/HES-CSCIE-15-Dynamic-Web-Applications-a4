@@ -18,6 +18,7 @@ class UsherSchedulerController extends Controller
     * this will display all services
     */
     public function showServices() {
+        # get the logged on user
         $user = Auth::user();
         if(!$user) {
             $user = null;
@@ -41,6 +42,12 @@ class UsherSchedulerController extends Controller
     * derived from adding 7 days to the last service date from the database.
     */
     public function newService(Request $request) {
+        # get the logged on user
+        $user = Auth::user();
+        if(!$user) {
+            $user = null;
+        }
+
         # get the date of the last service
         # $lastServiceDate = Service::orderBy('date', 'desc')->first();
         $lastService = Service::orderBy('date', 'desc')->first();
@@ -69,6 +76,7 @@ class UsherSchedulerController extends Controller
         return view('ushers.newService')->with([
             'newServiceDate' => $newServiceDate,
             'nextTeam' => $nextTeam,
+            'user' => $user,
         ]);
     }
 
@@ -107,6 +115,12 @@ class UsherSchedulerController extends Controller
     * /service/edit/{id}
     */
     public function serviceEdit($id) {
+        # get the logged on user
+        $user = Auth::user();
+        if(!$user) {
+            $user = null;
+        }
+
         $service = Service::find($id);
 
         if(is_null($service)) {
@@ -117,6 +131,7 @@ class UsherSchedulerController extends Controller
         return view('ushers.editService')->with([
             'id' => $id,
             'service' => $service,
+            'user' => $user,
         ]);
     }
 
@@ -173,10 +188,17 @@ class UsherSchedulerController extends Controller
     * this will display all teams
     */
     public function showTeams() {
+        # get the logged on user
+        $user = Auth::user();
+        if(!$user) {
+            $user = null;
+        }
+
         $teams = Team::with('ushers')->get();
 
         return view ('ushers.teams')->with([
             'teams' => $teams,
+            'user' => $user,
         ]);
     }
 
@@ -185,7 +207,12 @@ class UsherSchedulerController extends Controller
     * /ushers/edit/{id}
     */
     public function usherEdit($id) {
-        # $usher = Usher::find($id);
+        # get the logged on user
+        $user = Auth::user();
+        if(!$user) {
+            $user = null;
+        }
+
         $usher = Usher::with('teams')->find($id);
 
         if(is_null($usher)) {
@@ -207,6 +234,7 @@ class UsherSchedulerController extends Controller
             'usher' => $usher,
             'teamsForCheckboxes' => $teamsForCheckboxes,
             'teamsForThisUsher' => $teamsForThisUsher,
+            'user' => $user,
         ]);
     }
 
@@ -282,11 +310,17 @@ class UsherSchedulerController extends Controller
     * this will prompt the user for information to create new usher
     */
     public function newUsher(Request $request) {
+        # get the logged on user
+        $user = Auth::user();
+        if(!$user) {
+            $user = null;
+        }
 
         $teamsForCheckboxes = team::getTeamsForCheckboxes();
 
         return view('ushers.newUsher')->with([
             'teamsForCheckboxes' => $teamsForCheckboxes,
+            'user' => $user,
         ]);
     }
 
