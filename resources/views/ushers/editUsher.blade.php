@@ -43,6 +43,7 @@
                                     <li><input
                                         type='checkbox'
                                         value='{{ ($team_name == 'unassigned') ? '6' : str_ireplace('Team', '', $team_name) }}'
+                                        id='team_{{ str_ireplace('Team ', '', $team_name) }}'
                                         name='teams[]'
                                         class='{{ ($team_name == 'unassigned') ? 'blah' : 'checkboxchecker' }}'
                                         {{ (in_array($team_name, $teamsForThisUsher)) ? 'CHECKED' : '' }}
