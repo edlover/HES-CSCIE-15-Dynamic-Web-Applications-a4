@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Usher;
 use App\Service;
 use App\Team;
@@ -17,12 +18,17 @@ class UsherSchedulerController extends Controller
     * this will display all services
     */
     public function showServices() {
+        $user = Auth::user();
+        if(!$user) {
+            $user = null;
+        }
         $services = Service::orderBy('date')->get();
         $teams = Team::all();
 
         return view ('ushers.services')->with([
             'services' => $services,
             'teams' => $teams,
+            'user' => $user,
         ]);
     }
 

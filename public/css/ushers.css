@@ -35,18 +35,6 @@ form {
     color: white;
 }
 
-.msg_warning {
-    width:100%;
-    text-align:center;
-    padding:5px;
-    position:fixed;
-    top:0;
-    left:0;
-    background-color: yellow;
-    font-weight: bold;
-    color: white;
-}
-
 .page-header {
     background-color: #96352f;
     padding-top: 20px;
@@ -69,7 +57,11 @@ form {
 
 .nav-tabs {
     padding-left: 10px;
-    border-color: #96352f;
+    border-bottom: 0;
+}
+
+.nav-border {
+    border-bottom: 1px solid #96352f;
 }
 
 .nav-tabs>li>a, .nav-tabs>li>a:hover {
@@ -81,6 +73,14 @@ form {
 li#iamhere>a {
     background: white;
     color: #96352f;
+}
+
+#logout {
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 a {

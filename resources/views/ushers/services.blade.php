@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <main id='part1'>
         <div class='container-fluid'>
             <h1>Usher Team assignments for Worship Services</h1>
@@ -55,5 +54,5 @@
                 @endforeach
             </table>
         </div>
-    </div>
+    </main>
 @endsection
