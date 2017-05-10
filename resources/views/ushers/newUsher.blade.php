@@ -16,15 +16,21 @@
                 <div class='col-xs-12'>
                     <form method='POST' class='form-horizontal' action='/usher/new'>
                         {{ csrf_field() }}
+                        <div class='row'>
+                            <div class='col-xs-2'></div>
+                            <div class='col-xs-10'>
+                                <p>* Required fields</p>
+                            </div>
+                        </div>
 
                         <div class='form-group'>
-                            <label for='first_name' class='col-xs-2 control-label'>First name</label>
+                            <label for='first_name' class='col-xs-2 control-label'>First name *</label>
                             <div class='col-xs-10'>
                                 <input type='text' class='form-control' name='first_name' id='first_name' size='50' value='{{ old('first_name') }}' required >
                             </div>
                         </div>
                         <div class='form-group'>
-                            <label for='last_name' class='col-xs-2 control-label'>Last Name</label>
+                            <label for='last_name' class='col-xs-2 control-label'>Last Name *</label>
                             <div class='col-xs-10'>
                                 <input type='text' class='form-control' name='last_name' id='last_name' size='50' value='{{ old('last_name') }}' required>
                             </div>
@@ -52,7 +58,7 @@
                             </div>
                         </div>
                         <div class='form-group'>
-                            <label for='email' class='col-xs-2 control-label'>Email</label>
+                            <label for='email' class='col-xs-2 control-label'>Email *</label>
                             <div class='col-xs-10'>
                                 <input type='email' class='form-control' name='email' id='email' value='{{ old('email') }}' required >
                             </div>
